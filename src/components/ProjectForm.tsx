@@ -3,7 +3,9 @@
 import React, { ChangeEvent } from 'react';
 import Image from 'next/image';
 import { SessionInterface } from '@/common.types';
+import { categoryFilters } from '@/constants';
 import FormField from './FormField';
+import CustomMenu from './CustomMenu';
 
 interface ProjectFormProps {
     type: string;
@@ -83,7 +85,12 @@ const ProjectForm = ({
                 setState={value => handleStateChange('title', value)}
             />
 
-            {/* CustomInput Category... */}
+            <CustomMenu
+                title="Category"
+                state={form.category}
+                filters={categoryFilters}
+                setState={value => handleStateChange('category', value)}
+            />
             <div className="flexStart w-full">
                 <button>Create</button>
             </div>
