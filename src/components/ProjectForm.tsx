@@ -1,11 +1,12 @@
 "use client"
 
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Image from 'next/image';
 import { SessionInterface } from '@/common.types';
 import { categoryFilters } from '@/constants';
 import FormField from './FormField';
 import CustomMenu from './CustomMenu';
+import Button from './Button';
 
 interface ProjectFormProps {
     type: string;
@@ -17,14 +18,42 @@ const ProjectForm = ({
     session
 }: ProjectFormProps) => {
     const handleFormSubmit = (e: React.FormEvent) => { };
-    const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => { };
-    const handleStateChange = (fileName: string, value: string) => { };
+    const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
 
-    const form = {
-        image: ''
+        const file = e.target.files?.[0];
+
+        if (!file) return;
+
+        if (!file.type.includes('image')) {
+            return alert('Please upload an image file');
+        }
+
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);
+
+        reader.onload = () => {
+            const result = reader.result as string;
+            handleStateChange('image', result);
+        }
+    };
+    const handleStateChange = (fieldName: string, value: string) => {
+        setForm((prevState => ({ ...prevState, [fieldName]: value })))
     };
 
-    const image = null;
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [form, setForm] = useState({
+        title: '',
+        description: '',
+        image: '',
+        liveSiteUrl: '',
+        githubUrl: '',
+        category: '',
+    });
+    const btnText = type === 'create' ? 'Create' : 'Edit';
+    const processingBtnText = type === 'create' ? 'Creating' : 'Editing';
+    const btnTitle = isSubmitting ? processingBtnText : btnText;
     return (
         <form
             action=""
@@ -78,13 +107,6 @@ const ProjectForm = ({
                 placeholder="https://github.com/example"
                 setState={value => handleStateChange('githubUrl', value)}
             />
-            <FormField
-                title="Title"
-                state={form.title}
-                placeholder="type something"
-                setState={value => handleStateChange('title', value)}
-            />
-
             <CustomMenu
                 title="Category"
                 state={form.category}
@@ -92,7 +114,12 @@ const ProjectForm = ({
                 setState={value => handleStateChange('category', value)}
             />
             <div className="flexStart w-full">
-                <button>Create</button>
+                <Button
+                    title={btnTitle}
+                    type="submit"
+                    leftIcon={isSubmitting ? "" : "/plus.svg"}
+                    isSubmitting={isSubmitting}
+                />
             </div>
         </form>
     )
