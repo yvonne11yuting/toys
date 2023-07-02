@@ -1,12 +1,14 @@
 "use client"
 
 import React, { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { SessionInterface } from '@/common.types';
 import { categoryFilters } from '@/constants';
 import FormField from './FormField';
 import CustomMenu from './CustomMenu';
 import Button from './Button';
+import { createNewProject, fetchToken } from '@/lib/actions';
 
 interface ProjectFormProps {
     type: string;
@@ -17,7 +19,37 @@ const ProjectForm = ({
     type,
     session
 }: ProjectFormProps) => {
-    const handleFormSubmit = (e: React.FormEvent) => { };
+    const router = useRouter();
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [form, setForm] = useState({
+        title: '',
+        description: '',
+        image: '',
+        liveSiteUrl: '',
+        githubUrl: '',
+        category: '',
+    });
+
+    const handleFormSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        setIsSubmitting(true);
+
+        const { token } = await fetchToken();
+
+        try {
+            if (type === 'create') {
+                await createNewProject(form, session?.user?.id, token);
+
+                router.push('/');
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
 
@@ -42,15 +74,6 @@ const ProjectForm = ({
         setForm((prevState => ({ ...prevState, [fieldName]: value })))
     };
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [form, setForm] = useState({
-        title: '',
-        description: '',
-        image: '',
-        liveSiteUrl: '',
-        githubUrl: '',
-        category: '',
-    });
     const btnText = type === 'create' ? 'Create' : 'Edit';
     const processingBtnText = type === 'create' ? 'Creating' : 'Editing';
     const btnTitle = isSubmitting ? processingBtnText : btnText;
