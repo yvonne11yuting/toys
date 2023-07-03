@@ -22,7 +22,7 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
     return (
         <div className="flexCenter flex-col rounded-2xl drop-shadow-card">
-            <Link href={`/project/id`} className="flexCenter group relative w-full h-full">
+            <Link href={`/project/${id}`} className="flexCenter group relative w-full h-full">
                 <Image
                     src={image}
                     width={414}
