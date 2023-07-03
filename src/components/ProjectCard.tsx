@@ -65,7 +65,7 @@ const ProjectCard = ({
                             height={12}
                             alt="eye"
                         />
-                        <p className="text-sm">5.2k</p>
+                        <p className="text-sm">1.2k</p>
                     </div>
                 </div>
             </div>
