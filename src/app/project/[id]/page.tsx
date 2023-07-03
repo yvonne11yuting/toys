@@ -7,8 +7,8 @@ import Modal from "@/components/Modal"
 import { ProjectInterface } from "@/common.types"
 
 const Project = async ({ params: { id } }: { params: { id: string } }) => {
-    const session = await getCurrentUser()
-    const result = await getProjectDetails(id) as { project?: ProjectInterface }
+    // const session = await getCurrentUser()
+    const result = await getProjectDetails(id || '') as { project?: ProjectInterface }
 
     if (!result?.project) return (
         <p className="no-result-text">Failed to fetch project info</p>
