@@ -9,6 +9,7 @@ interface ProjectCardProps {
     name: string;
     avatarUrl: string;
     userId: string;
+    tags: string[];
 }
 
 const ProjectCard = ({
@@ -18,7 +19,8 @@ const ProjectCard = ({
     title,
     name,
     avatarUrl,
-    userId
+    userId,
+    tags
 }: ProjectCardProps) => {
     return (
         <div className="flexCenter flex-col rounded-2xl drop-shadow-card">
@@ -65,7 +67,7 @@ const ProjectCard = ({
                             height={12}
                             alt="eye"
                         />
-                        <p className="text-sm">1.2k</p>
+                        <p className="text-sm">tag: {tags?.join(', ') || ''}</p>
                     </div>
                 </div>
             </div>

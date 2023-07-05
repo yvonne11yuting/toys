@@ -9,7 +9,7 @@ const Navbar = async () => {
     const session = await getCurrentUser();
     return (
         <nav className="navbar">
-            <div className="flexBetween  max-w-7xl mx-auto">
+            <div className="flexBetween max-w-7xl mx-auto">
                 <div className="flex-1 flexStart gap-10">
                     <Link href="/">
                         <Image src="/logo.svg" width={60} height={60} alt="yuting logo" />

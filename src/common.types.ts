@@ -7,6 +7,7 @@ export type FormState = {
     liveSiteUrl: string;
     githubUrl: string;
     category: string;
+    tags: string[];
 };
 
 export interface ProjectInterface {
@@ -15,6 +16,7 @@ export interface ProjectInterface {
     image: string;
     liveSiteUrl: string;
     githubUrl: string;
+    tags: string[];
     category: string;
     id: string;
     createdBy: {
@@ -60,4 +62,5 @@ export interface ProjectForm {
     liveSiteUrl: string;
     githubUrl: string;
     category: string;
+    tags: string[];
 }

@@ -62,6 +62,7 @@ const Home = async ({ searchParams }: Props) => {
                                     name={node?.createdBy.name}
                                     avatarUrl={node?.createdBy.avatarUrl}
                                     userId={node?.createdBy.id}
+                                    tags={node?.tags}
                                 />
                             ))}
                         </section>

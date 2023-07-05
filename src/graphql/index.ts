@@ -62,6 +62,7 @@ export const projectsQuery = `
           id
           image
           category
+          tags
           createdBy {
             id
             email
@@ -84,6 +85,7 @@ export const getProjectByIdQuery = `
       liveSiteUrl
       githubUrl
       category
+      tags
       createdBy {
         id
         name
@@ -115,4 +117,12 @@ export const getProjectsOfUserQuery = `
       }
     }
   }
+`;
+
+export const deleteProjectMutation = `
+    mutation DeleteProject($id: ID!) {
+        projectDelete(by: { id: $id }) {
+            deletedId
+        }
+    }
 `;

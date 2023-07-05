@@ -29,6 +29,7 @@ const ProjectForm = ({
         liveSiteUrl: '',
         githubUrl: '',
         category: '',
+        tags: [''],
     });
 
     const handleFormSubmit = async (e: React.FormEvent) => {
@@ -70,7 +71,7 @@ const ProjectForm = ({
             handleStateChange('image', result);
         }
     };
-    const handleStateChange = (fieldName: string, value: string) => {
+    const handleStateChange = (fieldName: string, value: string | string[]) => {
         setForm((prevState => ({ ...prevState, [fieldName]: value })))
     };
 
@@ -135,6 +136,12 @@ const ProjectForm = ({
                 state={form.category}
                 filters={categoryFilters}
                 setState={value => handleStateChange('category', value)}
+            />
+            <FormField
+                title="Tags"
+                state={form.tags.join(',')}
+                placeholder="react, twailwind..."
+                setState={value => handleStateChange('tags', value.split(','))}
             />
             <div className="flexStart w-full">
                 <Button
