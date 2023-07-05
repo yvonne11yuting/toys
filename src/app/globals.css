@@ -105,15 +105,11 @@ body {
 
 /* Footer */
 .footer {
-  @apply flex-col paddings w-full gap-20 bg-light-white;
+  @apply flex-col paddings w-full gap-4 bg-light-white;
 }
 
 .footer_copyright {
-  @apply max-sm:flex-col w-full text-sm font-normal;
-}
-
-.footer_column {
-  @apply flex-1 flex flex-col gap-3 text-sm min-w-max;
+  @apply max-sm:flex-col w-full text-sm font-normal pl-2;
 }
 
 /* Form Field */
@@ -127,7 +123,7 @@ body {
 }
 
 .modal_wrapper {
-  @apply flex justify-start items-center flex-col h-[95%] w-5/6 min-w-min bottom-0 bg-white rounded-md lg:px-40 px-8 py-14 m-5 mx-auto overflow-auto;
+  @apply flex justify-start items-center flex-col h-[95%] w-4/6 min-w-min bottom-0 bg-white rounded-md lg:px-40 px-8 py-14 m-5 mx-auto overflow-auto;
 }
 
 /* Navbar */

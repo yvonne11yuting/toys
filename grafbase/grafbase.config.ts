@@ -18,6 +18,8 @@ const Project = g.model('Project', {
     title: g.string().length({ min: 3 }),
     description: g.string(),
     image: g.url(),
+    imageWidth: g.string(),
+    imageHeight: g.string(),
     liveSiteUrl: g.url(),
     githubUrl: g.url(),
     category: g.string().search(),

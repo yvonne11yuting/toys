@@ -22,7 +22,7 @@ const ProjectList = ({
     tags
 }: ProjectListProps) => {
     return (
-        <div className="flex rounded-2xl drop-shadow-card">
+        <div className="flex items-start drop-shadow-card gap-3">
             <Link href={`/project/${id}`} className="flexCenter">
                 <Image
                     src={image}
@@ -30,10 +30,13 @@ const ProjectList = ({
                     height={90}
                     className="object-cover rounded-md"
                     alt="Project Image"
+                    loading="lazy"
                 />
             </Link>
-            <div className="flex flex-col px-2 mt-3 font-semibold text-sm gap-2">
-                <div className="text-lg">{title}</div>
+            <div className="flex flex-col text-sm gap-2">
+                <Link href={`/project/${id}`}>
+                    <div className="text-lg font-semibold">{title}</div>
+                </Link>
                 <div className="flexStart gap-3">
                     <Image
                         src="/tags.svg"

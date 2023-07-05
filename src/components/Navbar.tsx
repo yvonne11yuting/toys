@@ -12,7 +12,7 @@ const Navbar = async () => {
             <div className="flexBetween pageDefault">
                 <div className="flex-1 flexStart gap-10">
                     <Link href="/">
-                        <Image src="/logo.svg" width={60} height={60} alt="yuting logo" />
+                        <Image src="/logo.png?" width={60} height={60} alt="yuting logo" />
                     </Link>
                 </div>
                 <div className="flexCenter gap-4 text-small">

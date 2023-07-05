@@ -11,21 +11,3 @@ export const categoryFilters = [
     "Experiments",
     "Others",
 ]
-
-export const footerLinks = [
-    {
-        title: 'Toys',
-        links: [
-            'github',
-            'github codespaces'
-        ]
-    },
-    {
-        title: 'Life',
-        links: [
-            'travel',
-            'music',
-            'video'
-        ]
-    }
-];

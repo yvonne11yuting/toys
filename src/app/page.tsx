@@ -39,7 +39,7 @@ const Home = async ({ searchParams }: Props) => {
     const projectsToDisplay = data?.projectSearch?.edges || [];
 
     return (
-        <section className="pageDefault flexStart flex-col mb-16">
+        <section className="flexStart flex-col mb-16">
             {/* <p className="codepen" data-height="300" data-default-tab="result" data-slug-hash="dyWaPjB" data-user="yvonne11yuting" style={{ height: '300px', 'box-sizing': 'border-box', display: 'flex', 'align-items': 'center', 'justify-content': 'center', border: '2px solid', margin: '1em 0', padding: '1em' }}>
                 <span>See the Pen <a href="https://codepen.io/yvonne11yuting/pen/dyWaPjB">
                     Pie Chart (path)</a> by Yvonne (<a href="https://codepen.io/yvonne11yuting">@yvonne11yuting</a>)

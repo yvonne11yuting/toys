@@ -9,6 +9,7 @@ import FormField from './FormField';
 import CustomMenu from './CustomMenu';
 import Button from './Button';
 import { createNewProject, fetchToken } from '@/lib/actions';
+import getImageSize from '@/utils/getImageSize';
 
 interface ProjectFormProps {
     type: string;
@@ -26,6 +27,8 @@ const ProjectForm = ({
         title: '',
         description: '',
         image: '',
+        imageWidth: '',
+        imageHeight: '',
         liveSiteUrl: '',
         githubUrl: '',
         category: '',
@@ -66,9 +69,12 @@ const ProjectForm = ({
 
         reader.readAsDataURL(file);
 
-        reader.onload = () => {
+        reader.onload = async () => {
             const result = reader.result as string;
+            const { width, height } = await getImageSize(result);
             handleStateChange('image', result);
+            handleStateChange('imageWidth', width);
+            handleStateChange('imageHeight', height);
         }
     };
     const handleStateChange = (fieldName: string, value: string | string[]) => {

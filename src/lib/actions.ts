@@ -47,11 +47,11 @@ export const fetchToken = async () => {
     }
 }
 
-export const uploadImage = async (imagePath: string) => {
+export const uploadImage = async (imagePath: string, width: string, height: string) => {
     try {
         const response = await fetch(`${serverUrl}/api/upload`, {
             method: 'POST',
-            body: JSON.stringify({ path: imagePath })
+            body: JSON.stringify({ path: imagePath, width, height })
         })
 
         return response.json();
@@ -61,7 +61,7 @@ export const uploadImage = async (imagePath: string) => {
 }
 
 export const createNewProject = async (form: ProjectForm, creatorId: string, token: string) => {
-    const imageUrl = await uploadImage(form.image);
+    const imageUrl = await uploadImage(form.image, form.imageWidth, form.imageHeight);
 
     if (imageUrl.url) {
         client.setHeader('Authorization', `Bearer ${token}`)
