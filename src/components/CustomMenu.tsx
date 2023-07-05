@@ -17,7 +17,7 @@ const CustomMenu = ({
     setState
 }: CustomMenuProps) => {
     return (
-        <div className="flexStart flex-col w-full gap-7 relative">
+        <div className="flexStart flex-col w-full gap-2 relative">
             <label htmlFor={title} className="w-full text-gray-100">
                 {title}
             </label>

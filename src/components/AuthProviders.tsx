@@ -32,15 +32,13 @@ const AuthProviders = () => {
         return (
             <div>{Object.values(providers).map((provider: Provider, i) => (
                 <button key={i} onClick={() => signIn(provider?.id)}>
-                    {provider.id}
+                    Log in
                 </button>
             ))}</div>
         )
     }
 
-    return (
-        <div>AuthProviders</div>
-    )
+    return null;
 }
 
 export default AuthProviders

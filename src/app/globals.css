@@ -92,7 +92,7 @@ body {
 }
 
 .custom_menu-items {
-  @apply flex-col absolute left-0 mt-2 xs:min-w-[300px] w-fit max-h-64 origin-top-right rounded-xl bg-white border border-nav-border shadow-menu overflow-y-auto;
+  @apply flex-col absolute left-0 mt-2 xs:min-w-[300px] w-fit max-h-64 origin-top-right rounded-md bg-white border border-nav-border shadow-menu overflow-y-auto;
 }
 
 .custom_menu-item {
@@ -114,7 +114,7 @@ body {
 
 /* Form Field */
 .form_field-input {
-  @apply w-full outline-0 bg-light-white-100 rounded-xl p-4;
+  @apply w-full outline-0 bg-light-white-100 rounded-md p-4;
 }
 
 /* Modal */
@@ -123,12 +123,12 @@ body {
 }
 
 .modal_wrapper {
-  @apply flex justify-start items-center flex-col absolute h-[95%] w-full bottom-0 bg-white rounded-t-3xl lg:px-40 px-8 pt-14 pb-72 overflow-auto;
+  @apply flex justify-start items-center flex-col h-[95%] w-5/6 min-w-min bottom-0 bg-white rounded-md lg:px-40 px-8 py-14 m-5 mx-auto overflow-auto;
 }
 
 /* Navbar */
 .navbar {
-  @apply py-5 px-8 border-b border-nav-border gap-4;
+  @apply p-4 border-b border-nav-border gap-4;
 }
 
 /* Profile Menu */
@@ -143,7 +143,7 @@ body {
 
 /* Project Form */
 .form {
-  @apply flex-col w-full lg:pt-24 pt-12 gap-10 text-lg max-w-5xl mx-auto;
+  @apply flex-col w-full lg:pt-16 pt-12 gap-8 text-lg max-w-5xl mx-auto;
 }
 
 .form_image-container {

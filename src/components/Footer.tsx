@@ -36,10 +36,7 @@ const Footer = () => {
                 <FooterColumns data={footerLinks} />
             </div>
             <div className="flexBetween footer_copyright">
-                <p>@ 2023 YOasis. All rights reserved</p>
-                <p className="text-gray">
-                    <span className="text-black font-semibold">10,214</span> projects submitted
-                </p>
+                <p>@ 2023 YToys. All rights reserved</p>
             </div>
         </footer>
     )
