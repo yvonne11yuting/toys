@@ -39,12 +39,4 @@ export default config({
         providers: [jwt],
         rules: (rules) => rules.private(),
     }
-    // Integrate Auth
-    // https://grafbase.com/docs/auth
-    // auth: {
-    //   providers: [authProvider],
-    //   rules: (rules) => {
-    //     rules.private()
-    //   }
-    // }
 })

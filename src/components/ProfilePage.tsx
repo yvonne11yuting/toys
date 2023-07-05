@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import Link from 'next/link'
 import Button from "./Button";
-import ProjectCard from './ProjectCard';
+import ProjectList from './ProjectList';
 
 type Props = {
     user: UserProfile;
@@ -55,7 +55,7 @@ const ProfilePage = ({ user }: Props) => (
             <div className="profile_projects">
                 {user?.projects?.edges?.map(
                     ({ node }: { node: ProjectInterface }) => (
-                        <ProjectCard
+                        <ProjectList
                             key={`${node?.id}`}
                             id={node?.id}
                             image={node?.image}
@@ -63,6 +63,7 @@ const ProfilePage = ({ user }: Props) => (
                             name={user.name}
                             avatarUrl={user.avatarUrl}
                             userId={user.id}
+                            tags={node?.tags}
                         />
                     )
                 )}
