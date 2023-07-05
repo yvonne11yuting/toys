@@ -1,6 +1,5 @@
 import { ProjectInterface } from "@/common.types";
-import Script from 'next/script'
-import Categories from "@/components/Categories";
+// import Script from 'next/script'
 import LoadMore from "@/components/LoadMore";
 import ProjectList from "@/components/ProjectList";
 import { fetchAllProjects } from "@/lib/actions";
