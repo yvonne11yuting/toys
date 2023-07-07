@@ -29,7 +29,10 @@ module.exports = {
             },
             maxWidth: {
                 '10xl': '1680px'
-            }
+            },
+            gridTemplateRows: {
+                'masonry': 'repeat(6, max-content)'
+            },
         },
     },
     plugins: [],
