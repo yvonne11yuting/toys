@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -32,7 +33,7 @@ const PhotoList = () => {
                     photosGroup.map(({ id, media_url, permalink }: { id: string; media_url: string; permalink: string }) => {
                         return (
                             <a key={id} target="_blank" href={permalink} className="flex h-auto relative group" rel="noopener noreferrer">
-                                <Image
+                                <img
                                     src={media_url}
                                     width={300}
                                     height={200}
