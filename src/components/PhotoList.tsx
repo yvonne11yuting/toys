@@ -1,13 +1,31 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { getPhotos } from '@/lib/actions';
 import groupBy from '@/utils/groupBy';
-import { PhotoType } from '@/common.types';
 
+type PhotoType = {
+    imageId: string;
+    photoUrl: string;
+    thumbnailUrl: string;
+    name: string;
+};
 
-const PhotoList = ({ data }: { data: PhotoType[] }) => {
-    const group = groupBy(data, (_, index: number) => String(index % 4));
-    const photos = Array.from(group.values());
+const PhotoList = () => {
+    const [photos, setPhotos] = useState<PhotoType[][]>([])
+
+    useEffect(() => {
+        async function fetchPhotos() {
+            const res = await getPhotos();
+            const group = groupBy(res, (_, index: number) => {
+                return String(index % 4);
+            });
+            const groupAry = Array.from(group.values());
+            setPhotos(groupAry);
+        }
+        fetchPhotos();
+    }, [])
 
     return photos.map((photosGroup, index) => {
         return (
@@ -21,9 +39,8 @@ const PhotoList = ({ data }: { data: PhotoType[] }) => {
                     }: PhotoType) => {
                         return (
                             <a key={imageId} target="_blank" href={photoUrl} className="flex h-auto max-w-xs relative group" rel="noopener noreferrer">
-                                <Image
+                                <img
                                     src={thumbnailUrl}
-                                    height={320}
                                     width={320}
                                     className="object-cover rounded-md"
                                     alt="photos"

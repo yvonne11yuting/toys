@@ -66,10 +66,3 @@ export interface ProjectForm {
     category: string;
     tags: string[];
 }
-
-export type PhotoType = {
-    imageId: string;
-    photoUrl: string;
-    thumbnailUrl: string;
-    name: string;
-};
