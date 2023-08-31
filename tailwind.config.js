@@ -32,7 +32,7 @@ module.exports = {
             },
             gridTemplateRows: {
                 'masonry': 'repeat(6, max-content)'
-            },
+            }
         },
     },
     plugins: [],

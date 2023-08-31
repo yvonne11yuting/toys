@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['lh3.googleusercontent.com', 'res.cloudinary.com', 'scontent.cdninstagram.com']
+        domains: ['lh3.googleusercontent.com', 'res.cloudinary.com', 'drive.google.com']
     },
     experimental: {
         serverComponentsExternalPackages: ['cloudinary', 'graphql-request']

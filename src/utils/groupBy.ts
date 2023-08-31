@@ -10,7 +10,7 @@
  *
  * @returns Map of the array grouped by the grouping function.
  */
-function groupBy(list: [], keyGetter: (item: unknown, index: number) => string) {
+function groupBy(list: unknown[], keyGetter: (item: unknown, index: number) => string) {
     const map = new Map();
     list.forEach((item, index) => {
         const key = keyGetter(item, index);

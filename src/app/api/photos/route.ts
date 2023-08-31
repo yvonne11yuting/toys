@@ -3,11 +3,11 @@ import axios from "axios";
 
 export async function GET(request: Request) {
     try {
-        const API_PATH = 'https://graph.instagram.com/me/media'
-        const FIELDS = 'id,media_url,permalink'
-        const LIMIT = 20
-        const ACCESS_TOKEN = process.env.INSTAGRAM_TOKEN
-        const API_ENDPOINT = `${API_PATH}?fields=${FIELDS}&limit=${LIMIT}&access_token=${ACCESS_TOKEN}`
+        const API_PATH = 'https://script.google.com/macros/s/AKfycbwqEWBMBuxVTTEWSzgekY1g08G1XD2fauTUlfkzAYsTcyQit2T1rM8L4FbpwEtrMi98oA/exec'
+        const api = 'display-record'
+        const serviceId = 'yvonne-dev-test'
+        const query = new URLSearchParams({ api, serviceId })
+        const API_ENDPOINT = `${API_PATH}?${query.toString()}`
 
         const result = await axios.get(API_ENDPOINT)
         console.log('result--------------', result);
