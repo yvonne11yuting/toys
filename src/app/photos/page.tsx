@@ -8,4 +8,4 @@ const Photos = () => {
     )
 }
 
-export default Photos
+export default Photos;
