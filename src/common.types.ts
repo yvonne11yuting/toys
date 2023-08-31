@@ -48,10 +48,11 @@ export interface UserProfile {
 
 export interface SessionInterface extends Session {
     user: User & {
-        id: string;
+        // id: string;
         name: string;
         email: string;
-        avatarUrl: string;
+        image: string;
+        // avatarUrl: string;
     };
 }
 
