@@ -13,7 +13,7 @@ const Navbar = async () => {
             <div className="flexBetween pageDefault">
                 <div className="flex-1 flexStart gap-10">
                     <Link href="/">
-                        <Image src="/logo.png?" width={60} height={60} alt="Yvonne logo" />
+                        <Image src="/logo.png?" width={48} height={48} alt="Yvonne logo" />
                     </Link>
                 </div>
                 <div className="flexCenter gap-4 text-small">
@@ -31,12 +31,12 @@ const Navbar = async () => {
                             </Link>
                         ))}
                     </ul>
-                    <BurgerButton />
                     {session?.user ? (
                         <ProfileMenu session={session} />
                     ) : (
                         <AuthProviders />
                     )}
+                    <BurgerButton />
                 </div>
             </div>
         </nav>
