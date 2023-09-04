@@ -42,7 +42,7 @@ const PhotoList = () => {
                                 <img
                                     src={thumbnailUrl}
                                     width={320}
-                                    className="object-cover rounded-md"
+                                    className="w-[180px] sm:w-[320px] object-cover rounded-md"
                                     alt="photos"
                                     loading="lazy"
                                 />

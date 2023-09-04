@@ -6,7 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   theme: {
     container: {
       center: true,
@@ -64,7 +64,7 @@ module.exports = {
         '10xl': '1680px'
       },
       gridTemplateRows: {
-        'masonry': 'repeat(6, max-content)'
+        'masonry': 'repeat(6, max-content)',
       },
       borderRadius: {
         lg: "var(--radius)",

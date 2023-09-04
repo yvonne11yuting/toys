@@ -195,11 +195,11 @@ body {
 
 /* Photos */
 .photos-grid {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-10;
+  @apply grid xl:grid-cols-4 grid-cols-3 gap-2 sm:gap-5 mt-2 sm:mt-10;
 }
 
 .photos-grid-sub {
-  @apply grid gap-5 h-auto grid-rows-masonry;
+  @apply grid gap-2 sm:gap-5 h-auto grid-rows-masonry;
 }
 
 .photos-link {
