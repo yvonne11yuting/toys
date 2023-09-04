@@ -4,7 +4,7 @@ import { NavLinks, UserNavLinks } from '@/constants'
 import { getCurrentUser } from '@/lib/session'
 import AuthProviders from './AuthProviders'
 import ProfileMenu from './ProfileMenu'
-import BurgerButton from './header/BurgerButton'
+import MobileMenu from './header/MobileMenu'
 
 const Navbar = async () => {
     const session = await getCurrentUser();
@@ -36,7 +36,7 @@ const Navbar = async () => {
                     ) : (
                         <AuthProviders />
                     )}
-                    <BurgerButton />
+                    <MobileMenu />
                 </div>
             </div>
         </nav>
