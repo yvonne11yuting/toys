@@ -66,6 +66,21 @@
   }
 }
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* burger button */
+  .toggle-btn {
+    @apply [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div]:bg-transparent [&>div]:rotate-[720deg]
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -160,7 +175,7 @@ body {
 }
 
 .footer_copyright {
-  @apply max-sm:flex-col w-full text-sm font-normal pl-2;
+  @apply w-full text-sm font-normal pl-2;
 }
 
 /* Navbar */
@@ -180,11 +195,11 @@ body {
 
 /* Photos */
 .photos-grid {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-10;
+  @apply grid xl:grid-cols-4 grid-cols-3 gap-2 sm:gap-5 mt-2 sm:mt-10;
 }
 
 .photos-grid-sub {
-  @apply grid gap-5 h-auto grid-rows-masonry;
+  @apply grid gap-2 sm:gap-5 h-auto grid-rows-masonry;
 }
 
 .photos-link {

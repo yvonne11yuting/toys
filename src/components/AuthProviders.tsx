@@ -20,9 +20,6 @@ const AuthProviders = () => {
     useEffect(() => {
         const fetchProviders = async () => {
             const res = await getProviders();
-
-            console.log(res);
-
             setProviders(res);
         }
         fetchProviders();
@@ -33,7 +30,7 @@ const AuthProviders = () => {
             <div>{Object.values(providers).map((provider: Provider, i) => (
                 <button key={i} onClick={() => signIn(provider?.id)} className="flex items-center justify-center gap-1">
                     <img src="/icon-google.svg" width={24} height={24} alt="google" />
-                    Log In/On
+                    <span className="hidden md:inline">Log In/On</span>
                 </button>
             ))}</div>
         )
