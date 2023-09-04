@@ -10,7 +10,7 @@ const Footer = () => {
                     Just some toys I made and recordings of my life.
                 </p>
             </div>
-            <div className="flexBetween footer_copyright">@ 2023 YToys. All rights reserved</div>
+            <div className="flexBetween footer_copyright">@ 2023 HeyYvonne! All rights reserved.</div>
         </footer>
     )
 }

@@ -4,6 +4,7 @@ import { NavLinks, UserNavLinks } from '@/constants'
 import { getCurrentUser } from '@/lib/session'
 import AuthProviders from './AuthProviders'
 import ProfileMenu from './ProfileMenu'
+import BurgerButton from './header/BurgerButton'
 
 const Navbar = async () => {
     const session = await getCurrentUser();
@@ -12,11 +13,11 @@ const Navbar = async () => {
             <div className="flexBetween pageDefault">
                 <div className="flex-1 flexStart gap-10">
                     <Link href="/">
-                        <Image src="/logo.png?" width={60} height={60} alt="yuting logo" />
+                        <Image src="/logo.png?" width={60} height={60} alt="Yvonne logo" />
                     </Link>
                 </div>
                 <div className="flexCenter gap-4 text-small">
-                    <ul className="xs:flex hidden gap-7 border-r-2 pr-4 border-slate-200">
+                    <ul className="md:flex hidden gap-7 border-r-2 pr-4 border-slate-200">
                         {
                             session?.user ? UserNavLinks.map(link => (
                                 <Link href={link.href} key={link.key}>
@@ -30,6 +31,7 @@ const Navbar = async () => {
                             </Link>
                         ))}
                     </ul>
+                    <BurgerButton />
                     {session?.user ? (
                         <ProfileMenu session={session} />
                     ) : (
