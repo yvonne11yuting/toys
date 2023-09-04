@@ -58,6 +58,10 @@ export const deleteProject = (id: string, token: string) => {
 };
 
 export const getPhotos = async () => {
-    const res = await axios.get(`${serverUrl}/api/photos`)
-    return res.data;
+    const API_BASE_PATH = 'https://script.google.com/macros/s/';
+    const apiVerKey = 'AKfycbwqEWBMBuxVTTEWSzgekY1g08G1XD2fauTUlfkzAYsTcyQit2T1rM8L4FbpwEtrMi98oA';
+    const serviceId = 'yvonne-dev-test'
+    const res = await axios.get(`${API_BASE_PATH}${apiVerKey}/exec?api=display-record&serviceId=${serviceId}`);
+
+    return res?.data?.data || [];
 }
