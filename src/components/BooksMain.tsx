@@ -13,11 +13,11 @@ const BooksMain = () => {
         <div className="flex flex-col gap-2">
             {BOOKS_RECORD.map(({ id, week, date, host, content }) => {
                 const attendees = content.map((item) => item.sharer).filter(item => item !== host)
-                const [month, day, year] = date.toLocaleDateString().split('/')
+                const dateStr = date.toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' })
                 return (
                     <Collapsible key={id}>
                         <CollapsibleTrigger className="flex justify-between flex-col sm:flex-row bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded w-full text-left">
-                            <h3 className="text-sm sm:text-base text-slate-800 font-medium whitespace-nowrap">Week {week} - {year}/{month}/{day}</h3>
+                            <h3 className="text-sm sm:text-base text-slate-800 font-medium whitespace-nowrap">Week {week} - {dateStr}</h3>
                             <div className="inline-flex items-center gap-6 w-[inherit] justify-between sm:justify-end">
                                 <span className="text-slate-600 text-xs sm:text-sm">
                                     <b className="text-slate-700 mr-2 ">Host:</b>{host}

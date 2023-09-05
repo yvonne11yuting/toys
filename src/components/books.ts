@@ -103,7 +103,7 @@ const record: Record[] = [
     {
         id: 'a04',
         week: 4,
-        date: new Date('2023-6-10'),
+        date: new Date('2023-06-10'),
         host: 'Yvonne',
         content: [
             {
@@ -131,7 +131,7 @@ const record: Record[] = [
     {
         id: 'a05',
         week: 5,
-        date: new Date('2023-7-1'),
+        date: new Date('2023-07-01'),
         host: 'Ray',
         content: [
             {
@@ -154,7 +154,7 @@ const record: Record[] = [
     {
         id: 'a06',
         week: 6,
-        date: new Date('2023-7-16'),
+        date: new Date('2023-07-16'),
         host: 'Judith',
         content: [
             {
@@ -187,7 +187,7 @@ const record: Record[] = [
     {
         id: 'a07',
         week: 7,
-        date: new Date('2023-7-30'),
+        date: new Date('2023-07-30'),
         host: '乖',
         content: [
             {
@@ -210,7 +210,7 @@ const record: Record[] = [
     {
         id: 'a08',
         week: 8,
-        date: new Date('2023-8-5'),
+        date: new Date('2023-08-05'),
         host: 'Yvonne',
         content: [
             {
@@ -233,7 +233,7 @@ const record: Record[] = [
     {
         id: 'a09',
         week: 9,
-        date: new Date('2023-8-19'),
+        date: new Date('2023-08-19'),
         host: '亦庭',
         content: [
             {
