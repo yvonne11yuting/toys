@@ -7,8 +7,8 @@ import Providers from "@/components/Providers"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-    title: 'HeyYvonne',
-    description: 'Just some toys I made',
+    title: 'Hey Yvonne!',
+    description: 'A collection of personal life stories and records.',
 }
 
 export default function RootLayout({
