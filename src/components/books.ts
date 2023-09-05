@@ -19,27 +19,27 @@ const record: Record[] = [
         content: [
             {
                 title: '當上主管後難道只能默默崩潰嗎',
-                slide: 'https: //hackmd.io/@yv/r1p30jqmh#/',
+                slide: 'https://hackmd.io/@yv/r1p30jqmh#/',
                 sharer: 'Yvonne'
             },
             {
                 title: '恰如其分的自尊',
-                slide: 'https: //docs.google.com/presentation/d/1j2wFxf5eKCLEjkHZnni-kFHWZxSlUdjz5zEYXxiKUAA/edit?usp=sharing',
+                slide: 'https://docs.google.com/presentation/d/1j2wFxf5eKCLEjkHZnni-kFHWZxSlUdjz5zEYXxiKUAA/edit?usp=sharing',
                 sharer: '啟綸'
             },
             {
                 title: '刻意練習',
-                slide: 'https: //www.canva.com/design/DAFhfNUAF2o/vqlUcIjjyBo9pNc_Vvf5Wg/view?utm_content=DAFhfNUAF2o&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
+                slide: 'https://www.canva.com/design/DAFhfNUAF2o/vqlUcIjjyBo9pNc_Vvf5Wg/view?utm_content=DAFhfNUAF2o&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
                 sharer: 'Judith'
             },
             {
                 title: '宇宙大哉問',
-                slide: 'https: //docs.google.com/presentation/d/105ZISSddPe97OTSFmOZ3HLUVC60q4QQQ4d-82dY1N3w/edit?usp=sharing',
+                slide: 'https://docs.google.com/presentation/d/105ZISSddPe97OTSFmOZ3HLUVC60q4QQQ4d-82dY1N3w/edit?usp=sharing',
                 sharer: 'Ray'
             },
             {
                 title: '這不是我們做事的方法！',
-                slide: 'https: //docs.google.com/presentation/d/16gHsjdShDAC8k_sCsoK-TOnSSst7L10ry58acO3E_b0/edit?usp=sharing',
+                slide: 'https://docs.google.com/presentation/d/16gHsjdShDAC8k_sCsoK-TOnSSst7L10ry58acO3E_b0/edit?usp=sharing',
                 sharer: '乖'
             }
         ]
@@ -52,22 +52,22 @@ const record: Record[] = [
         content: [
             {
                 title: '覺醒是與當下共舞',
-                slide: 'https: //docs.google.com/presentation/d/1-eFDbvW0kt4V_oLbSkgimj2-fu7MhQuauDN-NoPOju4/edit?usp=sharing',
+                slide: 'https://docs.google.com/presentation/d/1-eFDbvW0kt4V_oLbSkgimj2-fu7MhQuauDN-NoPOju4/edit?usp=sharing',
                 sharer: '乖'
             },
             {
                 title: '灰階思考',
-                slide: 'https: //hackmd.io/@yv/BkQ9ByhE3#/',
+                slide: 'https://hackmd.io/@yv/BkQ9ByhE3#/',
                 sharer: 'Yvonne'
             },
             {
                 title: '刻意練習',
-                slide: 'https: //www.canva.com/design/DAFiwxdRitg/WVWR5C1RAv0DgyFiqM6V3g/view?utm_content=DAFiwxdRitg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
+                slide: 'https://www.canva.com/design/DAFiwxdRitg/WVWR5C1RAv0DgyFiqM6V3g/view?utm_content=DAFiwxdRitg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
                 sharer: 'Judith'
             },
             {
                 title: '也許你該找人聊聊',
-                slide: 'https: //docs.google.com/presentation/d/1ZLuU5CVpMGuitoYfb2M5BSUZms8cdGpOp1SgSnLxaaQ/edit?usp=sharing',
+                slide: 'https://docs.google.com/presentation/d/1ZLuU5CVpMGuitoYfb2M5BSUZms8cdGpOp1SgSnLxaaQ/edit?usp=sharing',
                 sharer: '啟綸'
             }
         ]
@@ -103,7 +103,7 @@ const record: Record[] = [
     {
         id: 'a04',
         week: 4,
-        date: new Date('2023-6-10'),
+        date: new Date('2023-06-10'),
         host: 'Yvonne',
         content: [
             {
@@ -131,7 +131,7 @@ const record: Record[] = [
     {
         id: 'a05',
         week: 5,
-        date: new Date('2023-7-1'),
+        date: new Date('2023-07-01'),
         host: 'Ray',
         content: [
             {
@@ -154,7 +154,7 @@ const record: Record[] = [
     {
         id: 'a06',
         week: 6,
-        date: new Date('2023-7-16'),
+        date: new Date('2023-07-16'),
         host: 'Judith',
         content: [
             {
@@ -187,7 +187,7 @@ const record: Record[] = [
     {
         id: 'a07',
         week: 7,
-        date: new Date('2023-7-30'),
+        date: new Date('2023-07-30'),
         host: '乖',
         content: [
             {
@@ -210,7 +210,7 @@ const record: Record[] = [
     {
         id: 'a08',
         week: 8,
-        date: new Date('2023-8-5'),
+        date: new Date('2023-08-05'),
         host: 'Yvonne',
         content: [
             {
@@ -233,7 +233,7 @@ const record: Record[] = [
     {
         id: 'a09',
         week: 9,
-        date: new Date('2023-8-19'),
+        date: new Date('2023-08-19'),
         host: '亦庭',
         content: [
             {
