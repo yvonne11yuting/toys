@@ -59,7 +59,7 @@ const BookList = ({ data }: BookListProps) => {
                 <TableRow>
                     <TableHead className="w-5"></TableHead>
                     <TableHead>書名</TableHead>
-                    <TableHead>分享人</TableHead>
+                    <TableHead className="w-12">分享人</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
