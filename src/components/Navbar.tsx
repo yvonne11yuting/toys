@@ -15,10 +15,10 @@ const Navbar = async () => {
         <nav className="navbar">
             <div className="flexBetween pageDefault">
                 <div className="flex-1 flexStart gap-5">
-                    <Link href="/">
+                    <Link href="/" className="inline-flex items-center gap-4">
                         <Image src="/logo.png?" width={48} height={48} alt="Yvonne logo" />
+                        Hey Yvonne!
                     </Link>
-                    Hey Yvonne!
                 </div>
                 <div className="flexCenter gap-4 text-small">
                     <ul className="md:flex hidden gap-7 border-r-2 pr-4 border-slate-200">

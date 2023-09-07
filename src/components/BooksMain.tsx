@@ -10,7 +10,7 @@ import BOOKS_RECORD from "./books"
 
 const BooksMain = () => {
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col-reverse gap-2 mb-32">
             {BOOKS_RECORD.map(({ id, week, date, host, content }) => {
                 const attendees = content.map((item) => item.sharer).filter(item => item !== host)
                 const dateStr = date.toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' })
