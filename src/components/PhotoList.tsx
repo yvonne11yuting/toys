@@ -67,8 +67,7 @@ const PhotoList = () => {
                 )
             })
         }</div>
-    )
-    : <div className="flex justify-center h-screen pt-20"><Loading /></div>
+    ) : <div className="flex justify-center h-screen pt-20"><Loading /></div>
 }
 
 export default PhotoList
