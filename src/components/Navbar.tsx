@@ -1,19 +1,23 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { NavLinks, UserNavLinks } from '@/constants'
 import { getCurrentUser } from '@/lib/session'
 import AuthProviders from './AuthProviders'
 import ProfileMenu from './ProfileMenu'
-import MobileMenu from './header/MobileMenu'
 
+const MobileMenu = dynamic(() => import('./header/MobileMenu'), {
+    ssr: false,
+});
 const Navbar = async () => {
     const session = await getCurrentUser();
     return (
         <nav className="navbar">
             <div className="flexBetween pageDefault">
-                <div className="flex-1 flexStart gap-10">
-                    <Link href="/">
+                <div className="flex-1 flexStart gap-5">
+                    <Link href="/" className="inline-flex items-center gap-4">
                         <Image src="/logo.png?" width={48} height={48} alt="Yvonne logo" />
+                        Hey Yvonne!
                     </Link>
                 </div>
                 <div className="flexCenter gap-4 text-small">

@@ -7,10 +7,10 @@ const Footer = () => {
             <div className="flex items-end gap-2 w-full">
                 <Image src="/logo.png?" width={32} height={32} alt="YToys logo" />
                 <p className="text-start text-sm">
-                    Just some toys I made and recordings of my life.
+                    A collection of personal life stories and records.
                 </p>
             </div>
-            <div className="flexBetween footer_copyright">@ 2023 HeyYvonne! All rights reserved.</div>
+            <div className="flexBetween footer_copyright">@ 2023 Hey Yvonne! All rights reserved.</div>
         </footer>
     )
 }

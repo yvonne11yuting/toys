@@ -1,19 +1,13 @@
-type SearchParams = {
-    category?: string | null;
-    endcursor?: string | null;
-}
-
-type Props = {
-    searchParams: SearchParams
-}
-export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
-export const revalidate = 0;
-
-const Home = async ({ searchParams }: Props) => {
+const Home = () => {
     return (
-        <section className="flexStart flex-col mb-16">
-            Hi, there
+        <section className="flex-col my-12">
+            <p>
+                Hi there, <br />
+                I&apos;m Yvonne, a passionate senior frontend developer with a love for exploring both the digital and physical worlds. <br />
+                Welcome to my website!
+                <br /><br />
+                hmmm... I still thinking what to put here...
+            </p>
         </section>
     )
 };
