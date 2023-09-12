@@ -18,6 +18,8 @@ interface BookListProps {
 }
 
 const BookList = ({ data }: BookListProps) => {
+    const trimData = data.filter((item) => item.title !== "");
+
     return (
         <Table>
             <TableHeader>
@@ -28,7 +30,7 @@ const BookList = ({ data }: BookListProps) => {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {data.map((data, index) => (
+                {trimData.map((data, index) => (
                     <TableRow key={index}>
                         <TableCell className="font-medium">{index + 1}</TableCell>
                         <TableCell>
