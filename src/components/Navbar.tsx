@@ -15,7 +15,7 @@ const Navbar = async () => {
         <nav className="navbar">
             <div className="flexBetween pageDefault">
                 <div className="flex-1 flexStart gap-5">
-                    <Link href="/" className="inline-flex items-center gap-4">
+                    <Link data-testid="NAV_LOGO" href="/" className="inline-flex items-center gap-4">
                         <Image src="/logo.png?" width={48} height={48} alt="Yvonne logo" />
                         Hey Yvonne!
                     </Link>
