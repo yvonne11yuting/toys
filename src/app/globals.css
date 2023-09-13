@@ -205,3 +205,21 @@ body {
 .photos-link {
   @apply justify-end items-end w-full bg-gradient-to-b from-transparent to-black/50 rounded-b-2xl gap-2 absolute bottom-0 right-0 font-semibold text-lg text-white p-4 items-center;
 }
+
+/* Flip Card */
+.card {
+  @apply flex justify-center items-center p-3 text-xl sm:text-3xl h-full w-full shadow-xl transform absolute;
+  backface-visibility: hidden;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.transform-style-3d:active {
+  transform: rotateY(180deg);
+}
+
+.transform-rotateY-180 {
+  transform: rotateY(180deg);
+}

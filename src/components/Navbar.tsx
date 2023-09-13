@@ -24,13 +24,13 @@ const Navbar = async () => {
                     <ul className="md:flex hidden gap-7 border-r-2 pr-4 border-slate-200">
                         {
                             session?.user ? UserNavLinks.map(link => (
-                                <Link href={link.href} key={link.key}>
+                                <Link href={link.href} key={link.key} className="hover:text-cyan-800">
                                     {link.text}
                                 </Link>
                             )) : null
                         }
                         {NavLinks.map(link => (
-                            <Link href={link.href} key={link.key}>
+                            <Link href={link.href} key={link.key} className="hover:text-cyan-800">
                                 {link.text}
                             </Link>
                         ))}

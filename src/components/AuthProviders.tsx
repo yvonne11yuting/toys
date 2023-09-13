@@ -30,7 +30,7 @@ const AuthProviders = () => {
             <div>{Object.values(providers).map((provider: Provider, i) => (
                 <button key={i} onClick={() => signIn(provider?.id)} className="flex items-center justify-center gap-1">
                     <img src="/icon-google.svg" width={24} height={24} alt="google" />
-                    <span className="hidden md:inline">Log In/On</span>
+                    <span className="hidden md:inline hover:text-cyan-800">Log In/On</span>
                 </button>
             ))}</div>
         )
