@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithProviders } from '@/utils/testUtils';
 import Navbar from '@/components/Navbar';
 
 jest.mock('../../lib/session.ts', () => ({
@@ -18,7 +19,7 @@ jest.mock('next-auth/react', () => ({
 
 it('should render the heading', async () => {
 
-    render(await Navbar())
+    renderWithProviders(await Navbar())
     const logo = screen.getByTestId('NAV_LOGO');
 
     expect(logo).toBeInTheDocument();
