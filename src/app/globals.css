@@ -208,7 +208,7 @@ body {
 
 /* Flip Card */
 .card {
-  @apply flex justify-center items-center text-xl sm:text-3xl h-full w-full shadow-xl transform absolute;
+  @apply flex justify-center items-center p-3 text-xl sm:text-3xl h-full w-full shadow-xl transform absolute;
   backface-visibility: hidden;
 }
 
