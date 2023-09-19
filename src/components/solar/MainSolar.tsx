@@ -1,5 +1,5 @@
 "use client"
-import { OrbitControls, useHelper } from "@react-three/drei";
+import { useHelper } from "@react-three/drei";
 import AnimatedStars from "@/components/solar/AnimatedStars";
 import { useRef } from "react";
 import * as THREE from "three";
@@ -16,7 +16,6 @@ const MainSolar = () => {
     return (
         <>
             <color attach="background" args={['black']} />
-            <OrbitControls />
             <AnimatedStars />
             {/* <directionalLight ref={directionalLightRef} position={[0, 0, 10]} intensity={4} />
             <directionalLight ref={directionalLightRef2} position={[0, 0, -10]} intensity={4} /> */}
