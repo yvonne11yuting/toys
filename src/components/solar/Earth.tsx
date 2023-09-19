@@ -17,7 +17,7 @@ const Earth = () => {
     ]);
 
     useFrame(() => {
-        earthRef.current.rotation.y += 0.001;
+        earthRef.current.rotation.y += 0.002;
     });
 
     return (
