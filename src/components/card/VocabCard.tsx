@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface VocabCardProps {
     frontText: string;
@@ -14,13 +14,17 @@ const VocabCard = ({
 }: VocabCardProps) => {
     const [flip, setFlip] = useState(false);
 
+    useEffect(() => {
+        setFlip(false);
+    }, [frontText, backText]);
+
     const flipCard = () => {
         setFlip(!flip);
     }
 
     return (
         <div className="w-full flex items-center justify-center">
-            <div onClick={flipCard} className={cn("w-72 h-96 sm:w-2/3 sm:h-[480px] bg-slate-100 relative transform-style-3d duration-500", {
+            <div onClick={flipCard} className={cn("w-72 h-96 sm:w-2/3 sm:h-[480px] bg-slate-100 relative transform-style-3d duration-500 transition-opacity", {
                 "transform-rotateY-180": flip
             })}>
                 <div className="card">{frontText}</div>
