@@ -1,4 +1,8 @@
+import { redirect } from "next/navigation";
+
 const Home = () => {
+    redirect('/notes');
+
     return (
         <section className="flex-col my-12">
             <p data-testid="HOME_DESC">
