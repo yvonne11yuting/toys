@@ -6,4 +6,3 @@ export interface Vocabulary {
 export interface CommonState {
     vocabularies: Vocabulary[] | [];
 }
-
