@@ -5,7 +5,8 @@ const nextConfig = {
     },
     experimental: {
         serverComponentsExternalPackages: ['cloudinary', 'graphql-request']
-    }
+    },
+    transpilePackages: ['three']
 }
 
 module.exports = nextConfig
