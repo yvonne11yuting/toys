@@ -4,7 +4,7 @@ const nextConfig = {
         domains: ['lh3.googleusercontent.com', 'lh4.googleusercontent.com', 'res.cloudinary.com', 'drive.google.com']
     },
     experimental: {
-        serverComponentsExternalPackages: ['cloudinary', 'graphql-request']
+        serverComponentsExternalPackages: ['cloudinary', 'graphql-request', 'mongodb', 'mongoose']
     },
     transpilePackages: ['three']
 }

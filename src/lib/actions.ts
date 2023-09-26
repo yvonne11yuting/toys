@@ -1,17 +1,7 @@
-import { ProjectForm } from '@/common.types';
 import axios from 'axios';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const serverUrl = isProduction ? process.env.NEXT_PUBLIC_SERVER_URL : 'http://localhost:3000';
-
-export const getUser = (email: string) => {
-    return
-}
-
-
-export const createUser = (name: string, email: string, avatarUrl: string) => {
-    return
-}
 
 export const fetchToken = async () => {
     try {
@@ -37,24 +27,49 @@ export const uploadImage = async (imagePath: string, width: string, height: stri
     }
 }
 
-export const createNewProject = async (form: ProjectForm, creatorId: string, token: string) => {
-    return
+interface NotePayload {
+    title: string;
+    content: string;
+    userId: string;
 }
 
-export const fetchAllProjects = async (category?: string, endcursor?: string) => {
-    return
-}
+export const createNote = async ({ title, content, userId }: NotePayload) => {
+    try {
+        const response = await fetch(`${serverUrl}/api/notes`, {
+            method: 'POST',
+            body: JSON.stringify({ title, content, userId }),
+            headers: {
+                "content-type": "application/json",
+            },
+        })
 
-export const getProjectDetails = (id: string) => {
-    return
-}
+        if (!response.ok) {
+            throw new Error(`Server responded with status: ${response.status}`);
+        }
 
-export const getUserProjects = (id: string, last?: number) => {
-    return
+        return response.json();
+    } catch (error) {
+        throw error;
+    }
 };
 
-export const deleteProject = (id: string, token: string) => {
-    return
+export const getNote = async () => {
+    try {
+        const response = await fetch(`${serverUrl}/api/notes/650aca0984cea96311cee68c`, {
+            method: 'GET',
+            headers: {
+                "content-type": "application/json",
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Server responded with status: ${response.status}`);
+        }
+
+        return response.json();
+    } catch (error) {
+        throw error;
+    }
 };
 
 export const getPhotos = async () => {
