@@ -14,5 +14,9 @@ export async function GET(request: Request, { params }: { params: { id: string }
     const { id } = params;
     await connectMongoDB();
     const note = await Note.findOne({ _id: id });
+
+    if (!note) {
+        return NextResponse.json({ message: 'Cannot find the note id' }, { status: 404 });
+    }
     return NextResponse.json(note, { status: 200 });
 }

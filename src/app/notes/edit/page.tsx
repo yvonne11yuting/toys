@@ -1,12 +1,9 @@
 import NoteEditor from "@/components/editor/NoteEditor";
-import { getNote } from "@/lib/actions";
 
-const Edit = async () => {
-    const note = await getNote();
-
+const Edit = () => {
     return (
         <div className="mt-4">
-            <NoteEditor content={note.content} />
+            <NoteEditor />
         </div>
     );
 }

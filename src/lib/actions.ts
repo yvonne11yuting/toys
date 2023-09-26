@@ -43,6 +43,10 @@ export const createNote = async ({ title, content, userId }: NotePayload) => {
             },
         })
 
+        if (!response.ok) {
+            throw new Error(`Server responded with status: ${response.status}`);
+        }
+
         return response.json();
     } catch (error) {
         throw error;
@@ -57,6 +61,11 @@ export const getNote = async () => {
                 "content-type": "application/json",
             }
         });
+
+        if (!response.ok) {
+            throw new Error(`Server responded with status: ${response.status}`);
+        }
+
         return response.json();
     } catch (error) {
         throw error;
