@@ -282,6 +282,29 @@ const record: Record[] = [
             }
         ]
     },
+    {
+        id: 'a11',
+        week: 11,
+        date: new Date('2023-09-24'),
+        host: 'Yvonne',
+        content: [
+            {
+                title: '底層邏輯',
+                slide: 'https://www.canva.com/design/DAFvRwBay90/JWA76stNvPwvdfI3vHUcWQ/view?utm_content=DAFvRwBay90&utm_campaign=designshare&utm_medium=link&utm_source=viewer',
+                sharer: '乖'
+            },
+            {
+                title: '如果沒有文案，這世界會有多無聊',
+                slide: 'https://www.canva.com/design/DAFvSTrKtvI/YzwBDxRagARDcJqKE7jCbg/view?utm_content=DAFvSTrKtvI&utm_campaign=designshare&utm_medium=link&utm_source=viewer',
+                sharer: 'Judith'
+            },
+            {
+                title: '當上主管後，難道只能默默崩潰嗎？(Ch2)',
+                slide: 'https://hackmd.io/@yv/SkOEifNX2#Chapter-2-%E6%96%B0%E5%AE%98%E4%B8%8A%E4%BB%BB%E4%B8%89%E5%80%8B%E6%9C%88',
+                sharer: 'Yvonne'
+            },
+        ]
+    },
 ]
 
 export default record;
