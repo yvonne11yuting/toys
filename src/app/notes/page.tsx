@@ -72,4 +72,5 @@ const Notes = async () => {
     )
 }
 
-export default Notes
+export default Notes;
+

@@ -11,4 +11,4 @@ const Edit = async () => {
     );
 }
 
-export default Edit
+export default Edit;
