@@ -22,7 +22,7 @@
     "@react-three/fiber": "^8.14.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/jsonwebtoken": "^9.0.2",
-    "@types/node": "20.3.2",
+    "@types/node": "20.7.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "@types/react-redux": "^7.1.26",
