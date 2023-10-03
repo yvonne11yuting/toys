@@ -33,7 +33,7 @@
     "cloudinary": "^1.37.3",
     "clsx": "^2.0.0",
     "eslint": "8.43.0",
-    "eslint-config-next": "13.4.7",
+    "eslint-config-next": "13.5.3",
     "jsonwebtoken": "^9.0.0",
     "lucide-react": "^0.279.0",
     "mongoose": "^7.5.3",
