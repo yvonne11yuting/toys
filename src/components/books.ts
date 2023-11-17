@@ -305,6 +305,34 @@ const record: Record[] = [
             },
         ]
     },
+    {
+        id: 'a12',
+        week: 12,
+        date: new Date('2023-11-12'),
+        host: 'Yvonne',
+        content: [
+            {
+                title: '與成功有約',
+                slide: 'https://docs.google.com/presentation/d/1ZuckQHaCdMzyRqWhzjpyxQZA4negNnEhkk6B5MJR988/edit?usp=sharing',
+                sharer: 'Yvonne'
+            },
+            {
+                title: '靜下來工作',
+                slide: 'https://www.edrawmind.com/online/map.html?sharecode=65503e8dcdcb82a03074887',
+                sharer: 'Patti'
+            },
+            {
+                title: '你不懂的職場心理學',
+                slide: 'https://www.canva.com/design/DAFz6jHZm0w/lcYI0M3OfO9POUXTW9k9oA/view?utm_content=DAFz6jHZm0w&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+                sharer: 'Abby'
+            },
+            {
+                title: '不消費的一年',
+                slide: 'https://drive.google.com/file/d/1wFriPp_2Go_AsYtcbfnaOwix-3bKBQrL/view?usp=sharing',
+                sharer: '阿璇'
+            },
+        ]
+    },
 ]
 
 export default record;
