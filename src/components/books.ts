@@ -333,6 +333,95 @@ const record: Record[] = [
             },
         ]
     },
+    {
+        id: 'a13',
+        week: 13,
+        date: new Date('2023-11-25'),
+        host: 'Ray',
+        content: [
+            {
+                title: '烏克蘭的眼淚',
+                slide: 'https://docs.google.com/presentation/d/1v1M3_Dfno1xmwM_a3HjtazxnRmRKqoIH2-dDPCrwET4/edit?usp=sharing',
+                sharer: 'Ray'
+            },
+            {
+                title: '',
+                slide: '',
+                sharer: '乖乖'
+            },
+            {
+                title: '量子領導',
+                slide: 'https://www.canva.com/design/DAF1JgCmp7Y/nkaugw72gMpqHnD_SvRrHQ/view?utm_content=DAF1JgCmp7Y&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+                sharer: 'Judith'
+            },
+        ]
+    },
+    {
+        id: 'a14',
+        week: 14,
+        date: new Date('2023-12-10'),
+        host: 'Judith',
+        content: [
+            {
+                title: '逆思維',
+                slide: 'https://www.canva.com/design/DAF2cNLidOg/PM48tW-2992HJ8yIk7ZwgA/edit?utm_content=DAF2cNLidOg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
+                sharer: 'Yvonne'
+            },
+            {
+                title: '道德經',
+                slide: 'https://docs.google.com/presentation/d/1_fSWdlb28HzVe1nXTZYmoTzi2ld4rQVMC66X0ZoDoIc/edit?usp=sharing',
+                sharer: 'Ray'
+            },
+            {
+                title: '客戶一直來一直來',
+                slide: '',
+                sharer: '乖乖'
+            },
+            {
+                title: '資社年會發表簡報',
+                slide: '',
+                sharer: '亦庭'
+            },
+            {
+                title: '量子領導',
+                slide: 'https://www.canva.com/design/DAF1JgCmp7Y/nkaugw72gMpqHnD_SvRrHQ/view?utm_content=DAF1JgCmp7Y&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+                sharer: 'Judith'
+            },
+        ]
+    },
+    {
+        id: 'a15',
+        week: 15,
+        date: new Date('2024-01-13'),
+        host: 'Judith',
+        content: [
+            {
+                title: '逆思維 part.2',
+                slide: 's://www.canva.com/design/DAF2cNLidOg/PM48tW-2992HJ8yIk7ZwgA/edit',
+                sharer: 'Yvonne'
+            },
+            {
+                title: '文案力',
+                slide: 'https://www.canva.com/design/DAFvSTrKtvI/YzwBDxRagARDcJqKE7jCbg/view?utm_content=DAFvSTrKtvI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
+                sharer: 'Judith'
+            },
+            {
+                title: '內向者的好人緣聊天術',
+                slide: 'https://www.canva.com/design/DAFvRwBay90/JWA76stNvPwvdfI3vHUcWQ/view?utm_content=DAFvRwBay90&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+                sharer: '乖乖'
+            },
+            {
+                title: '不理性的力量',
+                slide: 'https://www.canva.com/design/DAF50nhr2as/HSFXIrNQFTl6oanSPKf3qQ/view?utm_content=DAF50nhr2as&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+                sharer: 'Abby'
+            },
+            {
+                title: '選擇障礙世代',
+                slide: 'https://viewer.edrawsoft.com/public/s/2e6ae586480426',
+                sharer: 'Patti'
+            },
+        ]
+    },
 ]
 
 export default record;
