@@ -36,7 +36,7 @@ const Notes = async () => {
         return <div>Oops...seems like something wrong</div>
     }
     const data = await getHackmdNotes(token) as Note[];
-    let publicData = data.filter((note: any) => note.readPermission !== "owner")
+    let publicData = data.filter((note: any) => note.readPermission !== "owner" && !!note?.lastChangeUser?.photo)
     publicData.sort((a, b) => b.createdAt - a.createdAt);
 
     return (
