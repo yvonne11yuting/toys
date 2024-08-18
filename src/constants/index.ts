@@ -3,7 +3,7 @@ export const NavLinks = [
     { href: '/notes', key: 'Notes', text: 'Notes' },
     { href: '/books', key: 'Books', text: 'Books' },
     { href: '/photos', key: 'Photos', text: 'Photos' },
-    { href: '/learning', key: 'Learning', text: 'Learning' },
+    { href: '/tlly-learning', key: 'Learning', text: 'Learning' },
     { href: '/solar', key: '3D_Earth', text: '3D Earth' },
 ];
 
