@@ -18,9 +18,6 @@ const page = async ({ searchParams }: PageProps) => {
     ]);
     const [GPData, BNNData] = await getAllData;
 
-    // const totalBnnLen = BNNData?.data?.length - 1 ?? 0;
-    // const lastQ = totalBnnLen ? BNNData.data[totalBnnLen]?.question : '';
-
     return (
         <div>
             <CardMain rawData={{ gp: GPData.data ?? [], bnn: BNNData.data ?? [] }} />
