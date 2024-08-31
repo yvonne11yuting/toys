@@ -1,19 +1,21 @@
 import { redirect } from "next/navigation";
 
 const Home = () => {
-    redirect('/notes');
+  redirect("/notes");
 
-    return (
-        <section className="flex-col my-12">
-            <p data-testid="HOME_DESC">
-                Hi there, <br />
-                I&apos;m Yvonne, a passionate senior frontend developer with a love for exploring both the digital and physical worlds. <br />
-                Welcome to my website!
-                <br /><br />
-                hmmm... I still thinking what to put here...
-            </p>
-        </section>
-    )
+  return (
+    <section className="flex-col my-12">
+      <p data-testid="HOME_DESC">
+        Hi there, <br />
+        I&apos;m Yvonne, a passionate senior frontend developer with a love for
+        exploring both the digital and physical worlds. <br />
+        Welcome to my website!
+        <br />
+        <br />
+        hmmm... I still thinking what to put here...
+      </p>
+    </section>
+  );
 };
 
 export default Home;

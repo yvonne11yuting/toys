@@ -10,18 +10,21 @@
  *
  * @returns Map of the array grouped by the grouping function.
  */
-function groupBy(list: unknown[], keyGetter: (item: unknown, index: number) => string) {
-    const map = new Map();
-    list.forEach((item, index) => {
-        const key = keyGetter(item, index);
-        const collection = map.get(key);
-        if (!collection) {
-            map.set(key, [item]);
-        } else {
-            collection.push(item);
-        }
-    });
-    return map;
+function groupBy(
+  list: unknown[],
+  keyGetter: (item: unknown, index: number) => string,
+) {
+  const map = new Map();
+  list.forEach((item, index) => {
+    const key = keyGetter(item, index);
+    const collection = map.get(key);
+    if (!collection) {
+      map.set(key, [item]);
+    } else {
+      collection.push(item);
+    }
+  });
+  return map;
 }
 
 export default groupBy;

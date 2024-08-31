@@ -14,7 +14,7 @@ interface VocabNoteProps {
     question: string;
     answer: string;
     note?: string;
-  }
+  };
 }
 
 export function VocabNote({ curVocab }: VocabNoteProps) {

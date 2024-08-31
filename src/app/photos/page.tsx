@@ -1,9 +1,7 @@
-import PhotoList from '@/components/PhotoList'
+import PhotoList from "@/components/PhotoList";
 
 const Photos = () => {
-    return (
-        <PhotoList />
-    )
-}
+  return <PhotoList />;
+};
 
 export default Photos;

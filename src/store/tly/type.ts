@@ -1,8 +1,8 @@
 export interface Vocabulary {
-    question: string;
-    answer: string;
+  question: string;
+  answer: string;
 }
 
 export interface CommonState {
-    vocabularies: Vocabulary[] | [];
+  vocabularies: Vocabulary[] | [];
 }

@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -50,21 +50,21 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'nav-border': '#EBEAEA',
-        'light-white': '#FAFAFB',
-        'light-white-400': '#E2E5F1',
+        "nav-border": "#EBEAEA",
+        "light-white": "#FAFAFB",
+        "light-white-400": "#E2E5F1",
       },
       boxShadow: {
-        menu: '0px 159px 95px rgba(13,12,34,0.01), 0px 71px 71px rgba(13,12,34,0.02), 0px 18px 39px rgba(13,12,34,0.02), 0px 0px 0px rgba(13,12,34,0.02)',
+        menu: "0px 159px 95px rgba(13,12,34,0.01), 0px 71px 71px rgba(13,12,34,0.02), 0px 18px 39px rgba(13,12,34,0.02), 0px 0px 0px rgba(13,12,34,0.02)",
       },
       screens: {
-        'xs': '400px',
+        xs: "400px",
       },
       maxWidth: {
-        '10xl': '1680px'
+        "10xl": "1680px",
       },
       gridTemplateRows: {
-        'masonry': 'repeat(6, max-content)',
+        masonry: "repeat(6, max-content)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -88,4 +88,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
