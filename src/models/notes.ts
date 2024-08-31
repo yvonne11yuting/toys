@@ -1,10 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 
-const notesSchema = new Schema({
+const notesSchema = new Schema(
+  {
     title: String,
     content: String,
     userId: String,
-}, { timestamps: true });
+  },
+  { timestamps: true },
+);
 
 const Note = mongoose.models.Note || mongoose.model("Note", notesSchema);
 

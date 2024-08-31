@@ -1,26 +1,27 @@
-import { screen } from '@testing-library/react';
-import { renderWithProviders } from '@/utils/testUtils';
-import Navbar from '@/components/Navbar';
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "@/utils/testUtils";
+import Navbar from "@/components/Navbar";
 
-jest.mock('../../lib/session.ts', () => ({
-    getCurrentUser: jest.fn().mockResolvedValue({
-        user: {
-            name: 'Test User',
-            email: 'user@gmail.com',
-            image: 'https://via.placeholder.com/150',
-        },
-        expires: '1',
-    }),
+jest.mock("../../lib/session.ts", () => ({
+  getCurrentUser: jest.fn().mockResolvedValue({
+    user: {
+      name: "Test User",
+      email: "user@gmail.com",
+      image: "https://via.placeholder.com/150",
+    },
+    expires: "1",
+  }),
 }));
 
-jest.mock('next-auth/react', () => ({
-    useSession: jest.fn().mockReturnValue([{ user: { name: 'Test User' } }, false]),
+jest.mock("next-auth/react", () => ({
+  useSession: jest
+    .fn()
+    .mockReturnValue([{ user: { name: "Test User" } }, false]),
 }));
 
-it('should render the heading', async () => {
+it("should render the heading", async () => {
+  renderWithProviders(await Navbar());
+  const logo = screen.getByTestId("NAV_LOGO");
 
-    renderWithProviders(await Navbar())
-    const logo = screen.getByTestId('NAV_LOGO');
-
-    expect(logo).toBeInTheDocument();
+  expect(logo).toBeInTheDocument();
 });
