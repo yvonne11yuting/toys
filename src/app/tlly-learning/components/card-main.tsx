@@ -26,7 +26,7 @@ const CardMain = ({ rawData }: CardMainProps) => {
         bnnRatio: 0.3,
         total: 30,
     });
-    const [currentIdx, setCurrentIdx] = useState<number>(1);
+    const [currentIdx, setCurrentIdx] = useState<number>(0);
     let bnnLastIdx = useMemo(() => {
         const idx = bnn.findIndex((item) => encodeURIComponent(item.question) === encodeURIComponent(setting.bnnLast));
         return idx > -1 ? idx : bnn.length - 1;
@@ -46,15 +46,20 @@ const CardMain = ({ rawData }: CardMainProps) => {
         const finalDta = createRandomOrder([...gpData, ...bnnData].length).map((idx) => [...gpData, ...bnnData][idx]);
         console.log('finalDta-----', finalDta);
         setData(finalDta);
+        setCurrentIdx(0);
     }, [setting, rawData]);
 
     const prevCard = () => {
-        if (currentIdx === 1) return;
+        if (currentIdx === 0) {
+            return;
+        }
         setCurrentIdx((cur) => cur - 1);
     };
 
     const nextCard = () => {
-        if (currentIdx === data.length) return;
+        if (currentIdx === data.length - 1) {
+            return;
+        }
         setCurrentIdx((cur) => cur + 1);
     };
 
@@ -65,7 +70,7 @@ const CardMain = ({ rawData }: CardMainProps) => {
                 The last question is: <b>{bnnLastQ}</b>
             </div>
             <div className="m-5 flex items-center justify-between">
-                <span>Viewed Questions: {currentIdx}</span>
+                <span>Viewed Questions: {currentIdx + 1}</span>
                 <div className="inline-flex gap-2">
                     {data.length > 0 && <VocabNote curVocab={data[currentIdx]} />}
                     <SheetSetting setting={setting} setSetting={setSetting} />
