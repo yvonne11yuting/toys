@@ -1,8 +1,8 @@
 'use client';
 
 import VocabCard from '@/components/card/VocabCard';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import React, { useCallback, useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight, TableProperties } from 'lucide-react';
+import React, { useEffect, useMemo, useState } from 'react';
 import VocabNote from './vocab-note';
 import SheetSetting from './sheet-setting';
 import { Button } from '@/components/ui/button';
@@ -20,25 +20,33 @@ interface CardMainProps {
 
 const CardMain = ({ rawData }: CardMainProps) => {
     const { gp, bnn } = rawData;
-    const TOTAL = 30;
-    const GP_RATIO = 0.7;
-    const GP_QUANTITY = Math.floor(TOTAL * GP_RATIO);
-    const BNN_QUANTITY = TOTAL - GP_QUANTITY; // ratio 0.3
-
-    const gpData = createRandomOrder(gp.length)
-        .slice(0, GP_QUANTITY)
-        .map((idx) => gp[idx]);
-    const bnnData = createRandomOrder(bnn.length)
-        .slice(0, BNN_QUANTITY)
-        .map((idx) => bnn[idx]);
-
     const [data, setData] = useState<QuestionFormat[]>([]);
-    const [setting, setSetting] = useState(null);
+    const [setting, setSetting] = useState({
+        bnnLast: '',
+        bnnRatio: 0.3,
+        total: 30,
+    });
     const [currentIdx, setCurrentIdx] = useState<number>(1);
+    let bnnLastIdx = useMemo(() => {
+        const idx = bnn.findIndex((item) => encodeURIComponent(item.question) === encodeURIComponent(setting.bnnLast));
+        return idx > -1 ? idx : bnn.length - 1;
+    }, [bnn, setting.bnnLast]);
+
+    const bnnLastQ = bnn?.[bnnLastIdx]?.question || '';
 
     useEffect(() => {
-        setData([...gpData, ...bnnData]);
-    }, [rawData]);
+        const bnnFinalData = bnn.slice(0, bnnLastIdx > -1 ? bnnLastIdx + 1 : bnn.length);
+        const BNN_QUANTITY = Math.floor(setting.total * setting.bnnRatio);
+        const gpData = createRandomOrder(gp.length)
+            .slice(0, setting.total - BNN_QUANTITY)
+            .map((idx) => gp[idx]);
+        const bnnData = createRandomOrder(bnnFinalData.length)
+            .slice(0, BNN_QUANTITY)
+            .map((idx) => bnn[idx]);
+        const finalDta = createRandomOrder([...gpData, ...bnnData].length).map((idx) => [...gpData, ...bnnData][idx]);
+        console.log('finalDta-----', finalDta);
+        setData(finalDta);
+    }, [setting, rawData]);
 
     const prevCard = () => {
         if (currentIdx === 1) return;
@@ -49,13 +57,18 @@ const CardMain = ({ rawData }: CardMainProps) => {
         if (currentIdx === data.length) return;
         setCurrentIdx((cur) => cur + 1);
     };
+
     return (
         <>
+            <div className="m-5 flex gap-2 text-slate-500">
+                <TableProperties className="stroke-yellow-400" />
+                The last question is: <b>{bnnLastQ}</b>
+            </div>
             <div className="m-5 flex items-center justify-between">
                 <span>Viewed Questions: {currentIdx}</span>
                 <div className="inline-flex gap-2">
                     {data.length > 0 && <VocabNote curVocab={data[currentIdx]} />}
-                    {/* <SheetSetting /> */}
+                    <SheetSetting setting={setting} setSetting={setSetting} />
                     <Button variant="ghost">
                         <Link href="/learning">Go to v1</Link>
                     </Button>
@@ -69,11 +82,7 @@ const CardMain = ({ rawData }: CardMainProps) => {
                     />
                 </button>
                 {data.length > 0 ? (
-                    <VocabCard
-                        frontText={data[currentIdx].question}
-                        backText={data[currentIdx].answer}
-                        qNum={currentIdx + 1}
-                    />
+                    <VocabCard frontText={data[currentIdx].question} backText={data[currentIdx].answer} />
                 ) : (
                     <div className="flex w-full items-center justify-center">
                         <Skeleton className="h-[480px] w-2/3" />
