@@ -1,80 +1,94 @@
-"use client";
-import VocabCard from "@/components/card/VocabCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useCallback, useState } from "react";
-import VocabNote from "./vocab-note";
-import SheetSetting from "./sheet-setting";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+'use client';
 
+import VocabCard from '@/components/card/VocabCard';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useCallback, useEffect, useState } from 'react';
+import VocabNote from './vocab-note';
+import SheetSetting from './sheet-setting';
+import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
+import Link from 'next/link';
+import createRandomOrder from '@/utils/randomOrder';
+
+type QuestionFormat = { question: string; answer: string; note?: string };
 interface CardMainProps {
-  srcData: { question: string; answer: string; note?: string }[];
+    rawData: {
+        gp: QuestionFormat[];
+        bnn: QuestionFormat[];
+    };
 }
 
-const CardMain = ({ srcData }: CardMainProps) => {
-  const [data, setData] = useState(srcData);
-  const [setting, setSetting] = useState(null);
-  const [viewedQuestions, setViewedQuestions] = useState<number[]>([]);
+const CardMain = ({ rawData }: CardMainProps) => {
+    const { gp, bnn } = rawData;
+    const TOTAL = 30;
+    const GP_RATIO = 0.7;
+    const GP_QUANTITY = Math.floor(TOTAL * GP_RATIO);
+    const BNN_QUANTITY = TOTAL - GP_QUANTITY; // ratio 0.3
 
-  const randomCard = useCallback(
-    ({ isNew }: { isNew: boolean }) => {
-      let nextIdx = Math.floor(Math.random() * data.length);
-      if (!isNew) {
-        while (
-          viewedQuestions.includes(nextIdx) &&
-          viewedQuestions.length < data.length
-        ) {
-          nextIdx = Math.floor(Math.random() * data.length);
-        }
-      }
-      setViewedQuestions((prev) => (isNew ? [nextIdx] : [...prev, nextIdx]));
-    },
-    [data, viewedQuestions],
-  );
+    const gpData = createRandomOrder(gp.length)
+        .slice(0, GP_QUANTITY)
+        .map((idx) => gp[idx]);
+    const bnnData = createRandomOrder(bnn.length)
+        .slice(0, BNN_QUANTITY)
+        .map((idx) => bnn[idx]);
 
-  const currentIdx = viewedQuestions?.at(-1) ?? 0;
-  const prevCard = () => {
-    if (viewedQuestions.length === 1) return;
-    setViewedQuestions((prev) => prev.slice(0, -1));
-  };
+    const [data, setData] = useState<QuestionFormat[]>([]);
+    const [setting, setSetting] = useState(null);
+    const [currentIdx, setCurrentIdx] = useState<number>(1);
 
-  const nextCard = () => {
-    randomCard({ isNew: false });
-  };
-  return (
-    <>
-      <div className="flex justify-between items-center m-5">
-        <span>Viewed Questions: {viewedQuestions.length + 1}</span>
-        <div className="inline-flex gap-2">
-          <VocabNote curVocab={data[currentIdx]} />
-          {/* <SheetSetting /> */}
-          <Button variant="ghost">
-            <Link href="/learning">Go to v1</Link>
-          </Button>
-        </div>
-      </div>
-      <div className="flex items-center">
-        <button data-testid="leftCard" onClick={prevCard}>
-          <ChevronLeft
-            color="#fda4af"
-            className="w-12 h-12 sm:w-24 sm:h-24 translate-x-0 sm:translate-x-full hover:stroke-rose-400"
-          />
-        </button>
-        <VocabCard
-          frontText={data[currentIdx].question}
-          backText={data[currentIdx].answer}
-          qNum={currentIdx + 1}
-        />
-        <button data-testid="rightCard" onClick={nextCard}>
-          <ChevronRight
-            color="#fda4af"
-            className="w-12 h-12 sm:w-24 sm:h-24 translate-x-0 sm:-translate-x-full hover:stroke-rose-400"
-          />
-        </button>
-      </div>
-      <div className="mt-16 text-right">Total: {data.length}</div>
-    </>
-  );
+    useEffect(() => {
+        setData([...gpData, ...bnnData]);
+    }, [rawData]);
+
+    const prevCard = () => {
+        if (currentIdx === 1) return;
+        setCurrentIdx((cur) => cur - 1);
+    };
+
+    const nextCard = () => {
+        if (currentIdx === data.length) return;
+        setCurrentIdx((cur) => cur + 1);
+    };
+    return (
+        <>
+            <div className="m-5 flex items-center justify-between">
+                <span>Viewed Questions: {currentIdx}</span>
+                <div className="inline-flex gap-2">
+                    {data.length > 0 && <VocabNote curVocab={data[currentIdx]} />}
+                    {/* <SheetSetting /> */}
+                    <Button variant="ghost">
+                        <Link href="/learning">Go to v1</Link>
+                    </Button>
+                </div>
+            </div>
+            <div className="flex items-center">
+                <button data-testid="leftCard" onClick={prevCard}>
+                    <ChevronLeft
+                        color="#fda4af"
+                        className="h-12 w-12 translate-x-0 hover:stroke-rose-400 sm:h-24 sm:w-24 sm:translate-x-full"
+                    />
+                </button>
+                {data.length > 0 ? (
+                    <VocabCard
+                        frontText={data[currentIdx].question}
+                        backText={data[currentIdx].answer}
+                        qNum={currentIdx + 1}
+                    />
+                ) : (
+                    <div className="flex w-full items-center justify-center">
+                        <Skeleton className="h-[480px] w-2/3" />
+                    </div>
+                )}
+                <button data-testid="rightCard" onClick={nextCard}>
+                    <ChevronRight
+                        color="#fda4af"
+                        className="h-12 w-12 translate-x-0 hover:stroke-rose-400 sm:h-24 sm:w-24 sm:-translate-x-full"
+                    />
+                </button>
+            </div>
+            <div className="mt-16 text-right">Total: {data.length}</div>
+        </>
+    );
 };
 
 export default CardMain;
