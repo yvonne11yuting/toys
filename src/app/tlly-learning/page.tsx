@@ -14,7 +14,7 @@ const page = async ({ searchParams }: PageProps) => {
     const lastCell = last_cell ? `&lastCell=${last_cell}` : '';
     const getAllData = Promise.all([
         fetch(`${serverUrl}/api/sheet?tabName=GP-phrase`).then((res) => res.json()),
-        fetch(`${serverUrl}/api/sheet?tabName=BNN-phrase${lastCell}`).then((res) => res.json()),
+        fetch(`${serverUrl}/api/sheet?tabName=BNN-phrase${lastCell}`, { cache: 'no-store' }).then((res) => res.json()),
     ]);
     const [GPData, BNNData] = await getAllData;
 
