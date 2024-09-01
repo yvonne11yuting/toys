@@ -36,7 +36,7 @@ export function SheetSetting({ setting, setSetting }: SheetSettingProps) {
                     <Settings />
                 </Button>
             </SheetTrigger>
-            <SheetContent className="lg:max-w-2xl">
+            <SheetContent className="overflow-scroll lg:max-w-2xl">
                 <SheetHeader>
                     <SheetTitle>Setting</SheetTitle>
                     <SheetDescription>You can customize the data setting here.</SheetDescription>
