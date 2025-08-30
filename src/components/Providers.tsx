@@ -1,19 +1,19 @@
-"use client";
-import { SessionProvider } from "next-auth/react";
-import React, { ReactNode } from "react";
+'use client';
+import { SessionProvider } from 'next-auth/react';
+import React, { type ReactNode } from 'react';
 
-import ReduxProvider from "@/store/ReduxProvider";
+import ReduxProvider from '@/store/ReduxProvider';
 
 interface Props {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 const Providers = (props: Props) => {
-  return (
-    <SessionProvider>
-      <ReduxProvider>{props.children}</ReduxProvider>
-    </SessionProvider>
-  );
+    return (
+        <SessionProvider>
+            <ReduxProvider>{props.children}</ReduxProvider>
+        </SessionProvider>
+    );
 };
 
 export default Providers;

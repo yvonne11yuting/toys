@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { Switch } from '@/components/ui/switch';
 import { useGetVocabulariesQuery } from '@/store/tly/tlyVocApi';
-import { Vocabulary } from '@/store/tly/type';
+import type { Vocabulary } from '@/store/tly/type';
 import VocabCard from './VocabCard';
 import Loading from '../common/Loading';
 import { Button } from '../ui/button';
@@ -22,6 +22,7 @@ const CardMain = () => {
 
     const randomCard = useCallback(
         ({ isNew }: { isNew: boolean }) => {
+            if (!data?.length) return;
             let nextIdx = Math.floor(Math.random() * data.length);
             if (!isNew) {
                 while (viewedQuestions.includes(nextIdx)) {
@@ -49,6 +50,7 @@ const CardMain = () => {
 
     const currentIdx = viewedQuestions?.at(-1) ?? 0;
     const updateCard = (offset: number) => {
+        if (!data?.length) return;
         const nextIdx = currentIdx + offset;
         if (nextIdx >= data.length) return;
         setViewedQuestions((prev) => [...prev, nextIdx]);
@@ -74,6 +76,7 @@ const CardMain = () => {
             </div>
         );
     if (isError) return <div>Error</div>;
+    if (!data?.length) return <div>No data available</div>;
 
     return (
         <>
@@ -99,7 +102,7 @@ const CardMain = () => {
                         className="h-12 w-12 translate-x-0 hover:stroke-rose-400 sm:h-24 sm:w-24 sm:translate-x-full"
                     />
                 </button>
-                <VocabCard frontText={data[currentIdx].question} backText={data[currentIdx].answer} />
+                <VocabCard frontText={data[currentIdx]?.question || ''} backText={data[currentIdx]?.answer || ''} />
                 <button data-testid="rightCard" onClick={nextCard}>
                     <ChevronRight
                         color="#fda4af"

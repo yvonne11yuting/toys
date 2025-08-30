@@ -1,19 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { CommonState, Vocabulary } from "./type";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { CommonState, Vocabulary } from './type';
 
 const initialState: CommonState = {
-  vocabularies: [],
+    vocabularies: [],
 };
 
 export const tlySlice = createSlice({
-  name: "tly",
-  initialState,
-  reducers: {
-    setVocabularies: (state, action: PayloadAction<Vocabulary[]>) => {
-      state.vocabularies = action.payload;
+    name: 'tly',
+    initialState,
+    reducers: {
+        setVocabularies: (state, action: PayloadAction<Vocabulary[]>) => {
+            state.vocabularies = action.payload;
+        },
     },
-  },
 });
 
 export const { setVocabularies } = tlySlice.actions;

@@ -4,13 +4,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 const serverUrl = isProduction ? process.env.NEXT_PUBLIC_SERVER_URL : 'http://localhost:3000';
 
 interface PageProps {
-    searchParams: {
+    searchParams: Promise<{
         last_cell: string;
-    };
+    }>;
 }
 
 const page = async ({ searchParams }: PageProps) => {
-    const { last_cell } = searchParams ?? {};
+    const { last_cell } = (await searchParams) ?? {};
     const lastCell = last_cell ? `&lastCell=${last_cell}` : '';
     const getAllData = Promise.all([
         fetch(`${serverUrl}/api/sheet?tabName=GP-phrase`).then((res) => res.json()),
