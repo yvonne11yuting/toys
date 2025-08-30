@@ -2,6 +2,7 @@ import { getServerSession } from 'next-auth/next';
 import type { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import type { SessionInterface } from '@/common.types';
+import { isCurrentUserAdmin } from './admin';
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -22,9 +23,17 @@ export const authOptions: NextAuthOptions = {
             return baseUrl;
         },
         async session({ session, token }) {
+            // add admin permission to session
+            if (session.user?.email) {
+                (session as any).isAdmin = isCurrentUserAdmin(session.user.email);
+            }
             return session;
         },
         async jwt({ token, user }) {
+            // add admin permission to JWT token
+            if (user?.email) {
+                token.isAdmin = isCurrentUserAdmin(user.email);
+            }
             return token;
         },
     },
