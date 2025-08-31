@@ -102,7 +102,7 @@ const CardMain = () => {
                         className="h-12 w-12 translate-x-0 hover:stroke-rose-400 sm:h-24 sm:w-24 sm:translate-x-full"
                     />
                 </button>
-                <VocabCard frontText={data[currentIdx]?.question || ''} backText={data[currentIdx]?.answer || ''} />
+                <VocabCard frontText={data[currentIdx]?.question || ''} />
                 <button data-testid="rightCard" onClick={nextCard}>
                     <ChevronRight
                         color="#fda4af"

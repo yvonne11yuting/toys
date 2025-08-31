@@ -54,7 +54,7 @@ export interface SessionInterface extends Session {
         image: string;
         // avatarUrl: string;
     };
-    isAdmin?: boolean;
+    isAdmin: boolean;
 }
 
 export interface ProjectForm {
