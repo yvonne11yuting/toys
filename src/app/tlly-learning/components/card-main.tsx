@@ -5,10 +5,9 @@ import { ChevronLeft, ChevronRight, TableProperties } from 'lucide-react';
 import React, { useEffect, useMemo, useState } from 'react';
 import VocabNote from './vocab-note';
 import SheetSetting from './sheet-setting';
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import Link from 'next/link';
 import createRandomOrder from '@/utils/randomOrder';
+import { AIBulbIcon, AIQuestionSheet } from '@/components/ai';
 
 type QuestionFormat = { question: string; answer: string; note?: string };
 interface CardMainProps {
@@ -16,9 +15,10 @@ interface CardMainProps {
         gp: QuestionFormat[];
         bnn: QuestionFormat[];
     };
+    isAdmin: boolean;
 }
 
-const CardMain = ({ rawData }: CardMainProps) => {
+const CardMain = ({ rawData, isAdmin }: CardMainProps) => {
     const { gp, bnn } = rawData;
     const [data, setData] = useState<QuestionFormat[]>([]);
     const [setting, setSetting] = useState({
@@ -72,11 +72,10 @@ const CardMain = ({ rawData }: CardMainProps) => {
             <div className="m-5 flex items-center justify-between">
                 <span>Viewed Questions: {currentIdx + 1}</span>
                 <div className="inline-flex gap-2">
+                    {isAdmin && <AIBulbIcon sentence={data[currentIdx]?.question ?? ''} />}
                     {data.length > 0 && <VocabNote curVocab={data[currentIdx]} />}
                     <SheetSetting setting={setting} setSetting={setSetting} />
-                    <Button variant="ghost">
-                        <Link href="/learning">Go to v1</Link>
-                    </Button>
+                    <AIQuestionSheet />
                 </div>
             </div>
             <div className="flex items-center">
@@ -87,7 +86,7 @@ const CardMain = ({ rawData }: CardMainProps) => {
                     />
                 </button>
                 {data.length > 0 ? (
-                    <VocabCard frontText={data[currentIdx].question} backText={data[currentIdx].answer} />
+                    <VocabCard frontText={data[currentIdx].question} />
                 ) : (
                     <div className="flex w-full items-center justify-center">
                         <Skeleton className="h-[480px] w-2/3" />
