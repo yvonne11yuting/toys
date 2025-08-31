@@ -66,8 +66,8 @@ export function AIQuestionSheet() {
                     <MessageCircle className="h-5 w-5" />
                 </Button>
             </SheetTrigger>
-            <SheetContent className="w-[400px] sm:w-[540px]">
-                <SheetHeader>
+            <SheetContent className="flex w-[400px] flex-col overflow-hidden sm:w-[540px]">
+                <SheetHeader className="flex-shrink-0">
                     <SheetTitle className="flex items-center gap-2">
                         <MessageCircle className="h-5 w-5 text-blue-500" />
                         AI Question & Answer
@@ -75,9 +75,9 @@ export function AIQuestionSheet() {
                     <SheetDescription>Ask any question and get AI-powered answers</SheetDescription>
                 </SheetHeader>
 
-                <div className="mt-6 space-y-4">
+                <div className="mt-6 flex-1 space-y-4 overflow-y-auto pr-2">
                     {/* Question Input Form */}
-                    <form onSubmit={handleSubmit} className="space-y-3">
+                    <form onSubmit={handleSubmit} className="flex-shrink-0 space-y-3">
                         <div className="space-y-2">
                             <label htmlFor="question" className="text-sm font-medium text-gray-700">
                                 Your Question
@@ -108,7 +108,7 @@ export function AIQuestionSheet() {
 
                     {/* Loading State */}
                     {isLoading && (
-                        <div className="flex items-center justify-center py-8">
+                        <div className="flex flex-shrink-0 items-center justify-center py-8">
                             <div className="text-center">
                                 <Loader2 className="mx-auto mb-2 h-8 w-8 animate-spin text-blue-500" />
                                 <p className="text-gray-600">AI is thinking...</p>
@@ -118,12 +118,12 @@ export function AIQuestionSheet() {
 
                     {/* AI Response */}
                     {response && !isLoading && (
-                        <div className="space-y-3">
+                        <div className="flex-shrink-0 space-y-3">
                             <div className="flex items-center gap-2">
                                 <div className="h-2 w-2 rounded-full bg-blue-500"></div>
                                 <h3 className="font-medium text-gray-900">AI Response</h3>
                             </div>
-                            <div className="rounded-lg bg-gray-50 p-4">
+                            <div className="max-h-96 overflow-y-auto rounded-lg bg-gray-50 p-4">
                                 <MarkdownRenderer content={response} />
                             </div>
                         </div>

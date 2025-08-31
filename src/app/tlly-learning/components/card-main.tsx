@@ -44,7 +44,6 @@ const CardMain = ({ rawData, isAdmin }: CardMainProps) => {
             .slice(0, BNN_QUANTITY)
             .map((idx) => bnn[idx]);
         const finalDta = createRandomOrder([...gpData, ...bnnData].length).map((idx) => [...gpData, ...bnnData][idx]);
-        console.log('finalDta-----', finalDta);
         setData(finalDta);
         setCurrentIdx(0);
     }, [setting, rawData]);
@@ -75,7 +74,7 @@ const CardMain = ({ rawData, isAdmin }: CardMainProps) => {
                     {isAdmin && <AIBulbIcon sentence={data[currentIdx]?.question ?? ''} />}
                     {data.length > 0 && <VocabNote curVocab={data[currentIdx]} />}
                     <SheetSetting setting={setting} setSetting={setSetting} />
-                    <AIQuestionSheet />
+                    {isAdmin && <AIQuestionSheet />}
                 </div>
             </div>
             <div className="flex items-center">
