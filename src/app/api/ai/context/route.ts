@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
         // Generate AI context
         const result = await generateContext({
-            sentence: `You are a English teacher, your student are Taiwanese. Please provide a brief, natural hints for this English sentence and the difficult words' hints: "${body.sentence}". Do not too obvious, we want the user to think a bit. Show the original sentence in the beginning of the response.`,
+            sentence: `You are a English teacher, your student are Taiwanese. 1. Please provide a brief, natural hints for the English sentence. 2. Show the difficult words' hints and International Phonetic Alphabet. 3. Show the original sentence in the beginning. English Sentence: "${body.sentence}". Do not too obvious, we want the user to think a bit.`,
         });
 
         if (!result.success) {
