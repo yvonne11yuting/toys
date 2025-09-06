@@ -8,6 +8,7 @@ import SheetSetting from './sheet-setting';
 import { Skeleton } from '@/components/ui/skeleton';
 import createRandomOrder from '@/utils/randomOrder';
 import { AIBulbIcon, AIQuestionSheet } from '@/components/ai';
+import { PersonalBookmarkIcon } from '@/components/bookmark';
 
 type QuestionFormat = { question: string; answer: string; note?: string };
 interface CardMainProps {
@@ -71,7 +72,14 @@ const CardMain = ({ rawData, isAdmin }: CardMainProps) => {
             </div>
             <div className="m-5 flex items-center justify-between">
                 <span>Viewed Questions: {currentIdx + 1}</span>
-                <div className="inline-flex gap-2">
+                <div className="inline-flex items-center gap-2">
+                    {isAdmin && data.length > 0 && (
+                        <PersonalBookmarkIcon
+                            question={data[currentIdx].question}
+                            answer={data[currentIdx].answer}
+                            note={data[currentIdx].note}
+                        />
+                    )}
                     {isAdmin && <AIBulbIcon sentence={data[currentIdx]?.question ?? ''} />}
                     {data.length > 0 && <VocabNote curVocab={data[currentIdx]} />}
                     <SheetSetting setting={setting} setSetting={setSetting} />
