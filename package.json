@@ -42,7 +42,7 @@
         "jsonwebtoken": "^9.0.0",
         "lucide-react": "^0.428.0",
         "mongoose": "^7.5.3",
-        "next": "15.5.2",
+        "next": "15.5.7",
         "next-auth": "^4.24.11",
         "novel": "^0.1.22",
         "postcss": "8.4.38",
